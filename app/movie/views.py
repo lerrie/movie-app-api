@@ -12,6 +12,7 @@ from rest_framework import  (
     viewsets,
     mixins,
     status,
+    filters,
 )
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -41,6 +42,10 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['title', 'age_restriction']
+    ordering_fields = ['title', 'release_date', 'age_restriction', 'running_time_minutes']
+    ordering = ['title']
 
     def _params_to_ints(self, qs):
         """Convert a list of strings to integers."""
