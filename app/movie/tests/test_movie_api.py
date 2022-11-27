@@ -80,7 +80,7 @@ class PrivateMovieAPITests(TestCase):
 
         res = self.client.get(MOVIES_URL)
 
-        movies = Movie.objects.all().order_by('-id')
+        movies = Movie.objects.all().order_by('title')
         serializer = MovieSerializer(movies, many=True)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)

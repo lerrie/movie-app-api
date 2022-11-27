@@ -59,10 +59,10 @@ class MovieViewSet(viewsets.ModelViewSet):
             genre_ids = self._params_to_ints(genres)
             queryset = queryset.filter(genres__id__in=genre_ids)
 
-        """return self.queryset.filter(user=self.request.user).order_by('-id')"""
+        """return self.queryset.filter(user=self.request.user).order_by('title')"""
         return queryset.filter(
             user=self.request.user
-        ).order_by('-id').distinct()
+        ).order_by('title').distinct()
 
     def get_serializer_class(self):
         """Return the serializer class for request."""
