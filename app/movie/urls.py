@@ -11,7 +11,7 @@ from movie import views
 
 router = DefaultRouter()
 router.register('movies', views.MovieViewSet)
-router.register('tags', views.GenreViewSet)
+router.register('genres', views.GenreViewSet)
 
 app_name = 'movie'
 
