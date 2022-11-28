@@ -64,7 +64,7 @@ class MovieDetailSerializer(MovieSerializer):
         fields = MovieSerializer.Meta.fields + ['description', 'link', 'image']
 
 
-class RecipeImageSerializer(serializers.ModelSerializer):
+class MovieImageSerializer(serializers.ModelSerializer):
     """Serializer for uploading images to movie."""
 
     class Meta:
